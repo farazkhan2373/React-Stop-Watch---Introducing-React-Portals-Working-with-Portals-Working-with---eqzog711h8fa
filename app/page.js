@@ -18,9 +18,6 @@ function Home() {
       intervalRef.current = setInterval(() => {
         setCurrentTime(Date.now() - startTime.current);
       }, 10);
-    } else {
-      clearInterval(intervalRef.current);
-      intervalRef.current = 0;
     }
   };
 
