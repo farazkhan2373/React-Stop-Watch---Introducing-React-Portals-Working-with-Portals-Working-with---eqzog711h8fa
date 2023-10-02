@@ -79,7 +79,7 @@ function Home() {
           <h2>Laps</h2>
           <section className="laps">
             {laps.map((lapTime, index) => (
-              <p key={index}>Lap {index + 1}: {formatTime(lapTime / 1000)}</p>
+              <p key={index}>{formatTime(lapTime / 1000)}</p>
             ))}
           </section>
         </section>
