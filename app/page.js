@@ -1,8 +1,7 @@
-'use client'
-import React, { useRef, useState, useEffect } from 'react'
+"use client";
+import React, { useRef, useState, useEffect } from "react";
 
 function Home() {
-
   const startTime = useRef(0);
   const intervalRef = useRef(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -56,12 +55,20 @@ function Home() {
   return (
     <div id="main">
       <section>
-        <h1 className='seconds-elapsed'>{formatTime(currentTime / 1000)}</h1>
-        <section className='buttons'>
-          <button className="start-btn" onClick={startStopwatch}>START</button>
-          <button className="stop-btn" onClick={stopStopwatch}>STOP</button>
-          <button className="lap-btn" onClick={lapStopwatch}>LAP</button>
-          <button className="reset-btn" onClick={resetStopwatch}>RESET</button>
+        <h1 className="seconds-elapsed">{formatTime(currentTime / 1000)}</h1>
+        <section className="buttons">
+          <button className="start-btn" onClick={startStopwatch}>
+            START
+          </button>
+          <button className="stop-btn" onClick={stopStopwatch}>
+            STOP
+          </button>
+          <button className="lap-btn" onClick={lapStopwatch}>
+            LAP
+          </button>
+          <button className="reset-btn" onClick={resetStopwatch}>
+            RESET
+          </button>
         </section>
       </section>
       {laps.length > 0 && (
@@ -77,7 +84,7 @@ function Home() {
         </section>
       )}
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
