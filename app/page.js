@@ -1,11 +1,12 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from 'react';
 
 function Home() {
   const startTime = useRef(0);
   const intervalRef = useRef(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [laps, setLaps] = useState([]);
+  const [lapSectionVisible, setLapSectionVisible] = useState(false);
 
   const formatTime = (time) => {
     return time.toFixed(3);
@@ -34,12 +35,14 @@ function Home() {
     if (intervalRef.current) {
       const lapTime = currentTime;
       setLaps([...laps, lapTime]);
+      setLapSectionVisible(true);
     }
   };
 
   const resetStopwatch = () => {
     setCurrentTime(0);
     setLaps([]);
+    setLapSectionVisible(false);
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = 0;
@@ -71,14 +74,12 @@ function Home() {
           </button>
         </section>
       </section>
-      {laps.length > 0 && (
+      {lapSectionVisible && laps.length > 0 && (
         <section className="lap-section">
           <h2>Laps</h2>
           <section className="laps">
             {laps.map((lapTime, index) => (
-              <p key={index}>
-                Lap {index + 1}: {formatTime(lapTime / 1000)}
-              </p>
+              <p key={index}>Lap {index + 1}: {formatTime(lapTime / 1000)}</p>
             ))}
           </section>
         </section>
